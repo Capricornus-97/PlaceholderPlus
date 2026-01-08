@@ -148,7 +148,7 @@ What's happening here? Let's break it down.
     - if you use it with [LoLa + Auto-Cards](https://github.com/LewdLeah/Localized-Languages): [link](../src/context-lola.js)
 12. Copy the *full* code from the page above and paste into your `Context` tab
 13. Select the `Library` tab on the left
-14. Open the Library code in a new browser tab: [link](./src/library.js)
+14. Open the Library code in a new browser tab: [link](../src/library.js)
 15. Copy the *full* code from the page above and paste into the bottom of your `Library` tab
 16. Click the big yellow `SAVE` button in the top right corner
 
