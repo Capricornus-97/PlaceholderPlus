@@ -159,3 +159,8 @@ See the [writing guide](writing-guide.md) for how to use &lt;&lt;placeholders&gt
 ## Advanced and niche setup
 
 See the [advanced setup guide](advanced-setup.md) for some advanced and niche options.
+
+## Links
+
+- [An interactive demo scenario](https://play.aidungeon.com/scenario/mFJy0uk4C4gT/placeholder-plus-script). There is an example scenario opening, and you can use "Story" actions to write text containing &lt;&lt;placeholders&gt;&gt;, and see how Placeholder Plus displays the end result.
+- [Placeholder Plus thread](https://discord.com/channels/903327676884979802/1458785960517963945) on the official [AI Dungeon Discord server](https://discord.gg/aggzkkKXjk)
