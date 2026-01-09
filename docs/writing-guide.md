@@ -37,7 +37,7 @@ Now that we have the `greeting` and `start_location` variables defined, we can u
 
 Suppose the player entered `the calculus lecture hall` into the placeholder `${Where are you at the start of the story?}`, when they start the adventure, they will see the opening displayed like this:
 
-> Hello! The scenario has started. You are currently in the calculus lecture hall.
+> **Hello!** The scenario has started. You are currently in **the calculus lecture hall**.
 
 ### Where can you use &lt;&lt;placeholders&gt;&gt;?
 

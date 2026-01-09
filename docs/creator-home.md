@@ -51,11 +51,11 @@ You can use it like this in your plot components:
 
 If the player enters `woman`, the plot component will end up looking like this:
 
-> She is a top student at your university. You are really impressed with her. She seems to really like you too!
+> **She** **is** a top student at your university. You are really impressed with **her**. **She** seem**s** to really like you too!
 
 The player may also specify pronouns in parentheses. E.g. `male (they / them)`:
 
-> They are a top student at your university. You are really impressed with them. They seem to really like you too!
+> **They** **are** a top student at your university. You are really impressed with **them**. **They** seem to really like you too!
 
 For non-binary genders, some built-in genders default to he/him, some default to she/her, and everything else defaults to they/them.
 
