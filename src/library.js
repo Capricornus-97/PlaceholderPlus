@@ -31,7 +31,7 @@ function choice(options, weights) {
     weights = (weights ?? []).slice(0, options.length)
     const cumWeights = [0]
     for (let i = 0; i < options.length; i++) {
-        cumWeights.push((weights[i] ?? 1) + cumWeights)
+        cumWeights.push((weights[i] ?? 1) + cumWeights.at(-1))
     }
     const rand = Math.random() * options.length
     let i = 0
@@ -256,19 +256,19 @@ const VARIABLE_STORY_CARD_TYPE = 'Placeholder Plus Variables'
  * Build a `random` transformation: choose a random element if input is null.
  * @template T
  * @param {(T | number)[]} args
- * @return {function((T | '' | NaN)?): T}
+ * @return {function(T?): T}
  */
 function randomTransform(...args) {
     const options = []
     const weights = []
-    for (let i = 0; i < args.length; i++) {
+    for (let i = 0; i < args.length; i += 2) {
         if (args[i + 1] != null) {
             options.push(args[i])
-            options.push(args[i + 1])
+            weights.push(args[i + 1])
         }
     }
     return (val) => {
-        if (val == null || val.trim?.() === '' || isNaN(val)) {
+        if (val == null || val.trim?.() === '' || (typeof v === 'number' && isNaN(v))) {
             return choice(options, weights)
         } else {
             return val
@@ -281,11 +281,11 @@ function randomTransform(...args) {
  * @param {number} from_
  * @param {number} to
  * @param {number?} decimalPlaces 0 by default, hence integer.
- * @return {function((number | '')?): number}
+ * @return {function(number?): number}
  */
 function randDecTransform(from_, to, decimalPlaces) {
     return (val) => {
-        if (val == null || val.trim?.() === '' || isNaN(val)) {
+        if (val == null || val.trim?.() === '' || (typeof v === 'number' && isNaN(v))) {
             return randDec(from_, to, decimalPlaces)
         } else {
             return val
@@ -303,7 +303,7 @@ const VAR_DEF_TRANSFORMS = {
     "enum": (...options) => (val => evalEnum(val, options)),
     "range": (from_, to) => (val => clamp(val, from_, to)),
     "yesNo": () => yesNo,
-    "default": d => (v => (v == null || v.trim?.() === '' || isNaN(v)) ? d : v),
+    "default": d => (v => (v == null || v.trim?.() === '' || (typeof v === 'number' && isNaN(v))) ? d : v),
     "random": randomTransform,
     "randNum": randDecTransform,
     "person": () => (s => new Person(s)),
