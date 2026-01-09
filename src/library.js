@@ -256,7 +256,7 @@ const VARIABLE_STORY_CARD_TYPE = 'Placeholder Plus Variables'
  * Build a `random` transformation: choose a random element if input is null.
  * @template T
  * @param {(T | number)[]} args
- * @return {function(T?): T}
+ * @return {function((T | '' | NaN)?): T}
  */
 function randomTransform(...args) {
     const options = []
@@ -268,7 +268,7 @@ function randomTransform(...args) {
         }
     }
     return (val) => {
-        if (val == null || val.trim?.() === '' || isNaN(v)) {
+        if (val == null || val.trim?.() === '' || isNaN(val)) {
             return choice(options, weights)
         } else {
             return val
@@ -281,11 +281,11 @@ function randomTransform(...args) {
  * @param {number} from_
  * @param {number} to
  * @param {number?} decimalPlaces 0 by default, hence integer.
- * @return {function(number?): number}
+ * @return {function((number | '')?): number}
  */
 function randDecTransform(from_, to, decimalPlaces) {
     return (val) => {
-        if (val == null || val.trim?.() === '' || isNaN(v)) {
+        if (val == null || val.trim?.() === '' || isNaN(val)) {
             return randDec(from_, to, decimalPlaces)
         } else {
             return val
@@ -312,7 +312,7 @@ const VAR_DEF_TRANSFORMS = {
 const COMMENT_REGEX = /^\s*\/\//
 const DEF_REGEX = /^\s*((?:[A-Za-z_\$][\w\$]*(?:\((?:"(?:[^"\\]|\\.)*"|[^)="])*\))?\s+)*)([A-Za-z_\$][\w\$]*(?:\.[A-Za-z_\$][\w\$]*)*)\s*=(.*)$/
 const TRANSFORM_REGEX = /([A-Za-z_\$][\w\$]*)(?:\(((?:"(?:[^"\\]|\\.)*"|[^)="])*)\))?/g
-const TRANSFORM_ARG_REGEX = /"(?:[^"\\]|\\.)*"|[^,"]*/
+const TRANSFORM_ARG_REGEX = /"(?:[^"\\]|\\.)*"|[^,"\s]+/g
 const VAR_REGEX = /^[A-Za-z_\$][\w\$]*(?:\.[A-Za-z_\$][\w\$]*)*/
 
 /**
