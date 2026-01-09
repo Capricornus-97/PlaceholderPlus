@@ -191,17 +191,18 @@ class Person {
     #genderInfo
 
     /**
-     * @param {string} name
+     * @param {string?} name
      */
     constructor(name) {
-        this.name = name
+        this.name = name?.trim?.()
     }
 
     /**
      * The person's gender. Assigning to this auto-generates pronoun-related fields.
-     * @param {string} genderInfo
+     * @param {string?} genderInfo
      */
     set gender(genderInfo) {
+        genderInfo = genderInfo?.trim?.()
         this.#genderInfo = genderInfo
 
         if (genderInfo == null) {

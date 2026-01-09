@@ -302,7 +302,7 @@ If you just want a random number that the player doesn't get to choose at all, s
 
 #### person
 
-Create a Person object with the given value as their name. This is the entrypoint to Placeholder Plus' pronoun utilities. See the "Pronoun utilities" section for more details.
+Create a Person object with the given value as their name. This is the entrypoint to Placeholder Plus' pronoun utilities. See the [Pronoun utilities](#pronoun-utilities) section for more details. Both the name and the gender have leading and trailing spaces trimmed automatically.
 
 Arguments:
 - `name`: the person's name
