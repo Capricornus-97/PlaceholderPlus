@@ -10,6 +10,7 @@ Features:
 - ✨ Neater reuse of the same placeholders in different places.
 - 🎲 Random elements in your plot components.
 - More: touch up player inputs using modifiers, do math, simple scripting.
+- Works with [LewdLeah's Inner Self](https://github.com/LewdLeah/Inner-Self) — installation instructions available.
 
 ## What does it look like?
 
